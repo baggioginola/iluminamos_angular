@@ -1,7 +1,14 @@
 
-angular.module('BlankApp', ['ngMaterial']).config(function($mdThemingProvider) {
-    // Configure a dark theme with primary foreground yellow
-    $mdThemingProvider.theme('docs-dark', 'default')
-        .primaryPalette('yellow')
-        .dark();
-});
+angular.module('loginApp', ['ngMaterial', 'ngMessages']).config(function($mdThemingProvider) {
+
+}).controller("loginAppCtrl", controladorLogin);
+
+function controladorLogin()
+{
+    var vm = this;
+    vm.formData = {};
+
+    vm.submitLogin = function(){
+
+    }
+}
