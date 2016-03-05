@@ -37,7 +37,10 @@
                     <md-card-actions layout="row" layout-align="center">
                         <md-button class="md-raised md-primary" type="submit">Ingresar</md-button>
                     </md-card-actions>
+                    <span ng-show="errorName">{vm.errorMsg}</span>
                 </form>
+
+
             </md-card-content>
         </md-card>
     </md-content>

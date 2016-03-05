@@ -18,11 +18,10 @@ function loginController($http,md5)
         })
             .success(function(data) {
                 console.log(data);
-
                 /*
                 if (!data.success) {
                     // if not successful, bind errors to error variables
-                    vm.errorName = data.errors.name;
+                    vm.errorMsg = data.errors.name;
                     vm.errorSuperhero = data.errors.superheroAlias;
                 } else {
                     // if successful, bind success message to message
