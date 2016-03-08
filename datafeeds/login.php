@@ -20,21 +20,23 @@ $sql = "SELECT e_mail,password FROM usuarios WHERE 1 = 1 ".$where." AND nivel = 
 
 $result = db_query($sql);
 
-if(!empty($result)) {
+if(db_num_result($result->num_rows)) {
     $data = array();
-    while($row = db_fetch_array($result, MYSQL_ASSOC)){
+
+    while ($row = db_fetch_array($result)) {
         $data = array('email' => $row['e_mail'], 'password' => $row['password']);
     }
-    if($data['password'] == $_POST['password']) {
-        $response['success'] = 'access';
-        echo json_encode($response);
-    }
-    else {
-        $response['error'] = 'No access allowed';
-        echo json_encode($response);
+
+    if ($data['password'] == $_POST['password']) {
+        $response['success'] = true;
+        $response['msg'] = 'Access';
+    } else {
+        $response['success'] = false;
+        $response['msg'] = "You don't have access to this page";
     }
 }
 else {
-    $response['error'] = "User doesn't exist";
-    echo json_encode($response);
+    $response['success'] = false;
+    $response['msg'] = "User doesn't exist";
 }
+echo json_encode($response);

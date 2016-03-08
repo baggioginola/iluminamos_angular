@@ -11,8 +11,6 @@
         <md-card>
             <img ng-src="public/images/logo.png" class="md-card-image" alt="Iluminamos">
             <md-card-content>
-                <div id="messages" ng-show="message">{{ message }}</div>
-
                 <form name="login_form" ng-submit="vm.submitLogin()" ng-controller="loginAppCtrl as vm">
                     <md-input-container class="md-block" flex-gt-sm="">
                         <label>Email (requerido)</label>
@@ -24,7 +22,6 @@
                             </div>
                         </div>
                     </md-input-container>
-
                     <md-input-container class="md-block" flex-gt-sm="">
                         <label>Password (requerido)</label>
                         <md-icon md-svg-src="public/icons/ic_lock_black_24px.svg" class="name"></md-icon>
@@ -33,19 +30,17 @@
                             <div ng-message="required">This is required.</div>
                         </div>
                     </md-input-container>
-
                     <md-card-actions layout="row" layout-align="center">
                         <md-button class="md-raised md-primary" type="submit">Ingresar</md-button>
                     </md-card-actions>
-                    <span ng-show="errorName">{vm.errorMsg}</span>
+                    <div flex layout="row" layout-align="center" class="red">
+                        <span ng-show="vm.errorMsg" >{{vm.errorMsg}}</span>
+                    </div>
                 </form>
-
-
             </md-card-content>
         </md-card>
     </md-content>
 </div>
-
 <!-- Angular Material requires Angular.js Libraries -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
